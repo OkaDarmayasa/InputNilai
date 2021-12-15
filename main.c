@@ -70,7 +70,7 @@ int main(){
             return 0;
 
         default:
-            printf("\n\n\t Maaf, pilihan tidak tersedia ");
+            printf("\n   Maaf, pilihan tidak tersedia\n");
             fflush (stdin);
             goto menu;
             break;
@@ -78,6 +78,6 @@ int main(){
         fflush (stdin);
         printf("\n\n Apakah anda ingin mengulang? Ketik 1 jika iya: ");
         scanf("%d", &ul);
-    }while(ul=='1');
+    }while(ul==1);
     return 0;
 }
