@@ -1,14 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Input.c"
-
-//Deklarasi fungsi
-void landing_page();
-void edit_data();
-void display();
-int search();
-int sort_nilai();
-int sort_nama();
+#include "Edit.c"
 
 void loading()
 {
@@ -48,15 +41,16 @@ int main(){
                 input();
                 break;
             case 2:
-                //edit
+                edit();
                 break;
             case 3:
-                //lihat
+                display();
                 break;
             case 4:
                 return 0;
             default:
                 printf("\n   Maaf, pilihan tidak tersedia\n");
+                sleep(5);
                 fflush (stdin);
                 goto menu;
                 break;
