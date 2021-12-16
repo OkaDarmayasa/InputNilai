@@ -22,7 +22,7 @@ void input(){
 
     printf("\n  &NIM: ");
     scanf("\n");
-    scanf("%d", mhs[count].NIM);
+    scanf("%d", &mhs[count].NIM);
     printf("\n  Nama: ");
     scanf("\n");
     scanf("%[^\n]*c", mhs[count].Nama);
@@ -30,7 +30,7 @@ void input(){
     ulang:
     printf("\n  Menu Input Data Mahasiswa");
     //                 2008561070
-    printf("\n         %s", mhs[count].NIM);
+    printf("\n         %d", mhs[count].NIM);
     printf("\n  ---------------------");
     printf("\n  1. Input Nilai Tugas");
     printf("\n  2. Input Nilai Quiz");
