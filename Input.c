@@ -8,7 +8,7 @@ int count = 0; //variabel global sebagai penghitung banyak mahasiswa yang sudah 
 //Struktur data yang akan menyimpan data mahasiswa
 struct data
 {
-    char NIM[11];
+    int NIM;
     char Nama[30];
     int Nilai[6];
     //indeks 0 tugas, 1 quiz, 2 keaktifan, 3 UTS, 4 UAS, 5 rata-rata.
@@ -54,7 +54,7 @@ void input(){
 
 //*/
 /* //Klo capek nginput wkwk
-    strcpy(mhs[0].NIM,"2008561065");
+    mhs[0].NIM = 2008561065;
     strcpy(mhs[0].Nama, "Rian");
     mhs[0].Nilai[0] = 80;
     mhs[0].Nilai[1] = 70;
@@ -62,7 +62,7 @@ void input(){
     mhs[0].Nilai[3] = 80;
     mhs[0].Nilai[4] = 90;
 
-    strcpy(mhs[1].NIM,"2008561070");
+    mhs[1].NIM = 2008561070;
     strcpy(mhs[1].Nama, "Oka");
     mhs[1].Nilai[0] = 100;
     mhs[1].Nilai[1] = 20;
@@ -70,14 +70,13 @@ void input(){
     mhs[1].Nilai[3] = 78;
     mhs[1].Nilai[4] = 95;
 
-    strcpy(mhs[2].NIM,"2008561060");
+    mhs[2].NIM = 2008561060;
     strcpy(mhs[2].Nama, "Chelsy");
     mhs[2].Nilai[0] = 90;
     mhs[2].Nilai[1] = 50;
     mhs[2].Nilai[2] = 60;
     mhs[2].Nilai[3] = 100;
     mhs[2].Nilai[4] = 70;
-
 */
     //Menghitung nilai rata-rata
     int rerata = 0;
