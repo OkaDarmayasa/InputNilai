@@ -8,7 +8,7 @@ int count = 0; //variabel global count
 //Struktur data yang akan menyimpan data mahasiswa
 struct data
 {
-    char NIM[11];
+    int NIM;
     char Nama[30];
     int Nilai[6];
     //indeks 0 tugas, 1 quiz, 2 keaktifan, 3 UTS, 4 UAS, 5 rata-rata.
@@ -20,9 +20,9 @@ void input(){
     int pilihan;
     char ulang;
 
-    printf("\n  NIM: ");
+    printf("\n  &NIM: ");
     scanf("\n");
-    scanf("%[^\n]*c", mhs[count].NIM);
+    scanf("%d", mhs[count].NIM);
     printf("\n  Nama: ");
     scanf("\n");
     scanf("%[^\n]*c", mhs[count].Nama);
