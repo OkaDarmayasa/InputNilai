@@ -12,7 +12,7 @@ void loading()
     // Print loading bar progress
     for (int i = 0; i < 20; i++) {
         printf("%c", 9); // kalau mau simbol lain tinggal ubah angkanya
-        Sleep(100);
+        sleep(100);
     }
 }
 
