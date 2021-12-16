@@ -43,10 +43,11 @@ void case1_9(int caseBerapa){
         }
     }
     else{
-        char namaDicari[MAX], NIMDicari[11];
+        int NIMDicari;
+        char namaDicari[MAX];
         printf("\n  NIM: ");
         scanf("\n");
-        scanf("%[^\n]*c", NIMDicari);
+        scanf("%d", &NIMDicari);
         int in = search(NIMDicari); //in itu indeksDicari
         //indeks 0 tugas, 1 quiz, 2 keaktifan, 3 UTS, 4 UAS, 5 rata-rata.
         if (in != -1){
