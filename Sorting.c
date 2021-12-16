@@ -13,14 +13,16 @@ void merge(int jenis, int l, int m, int r, int tipe)
     for (i = 0; i < n1; i++){
         strcpy(L[i].Nama, mhs[l + i].Nama);
         L[i].NIM = mhs[l + i].NIM;
-        L[i].Nilai[0] = mhs[l + i].Nilai[0];
-        L[i].Nilai[1] = mhs[l + i].Nilai[1];
+        for(int x = 0; x < 6; x++){
+            L[i].Nilai[x] = mhs[l + i].Nilai[x];
+        }
     }
     for (j = 0; j < n2; j++){
         strcpy(R[j].Nama, mhs[m + 1 + j].Nama);
         R[j].NIM = mhs[m + 1 + j].NIM;
-        R[j].Nilai[0] = mhs[m + 1 + j].Nilai[0];
-        R[j].Nilai[1] = mhs[m + 1 + j].Nilai[1];
+        for(int x = 0; x < 6; x++){
+            R[j].Nilai[x] = mhs[m + 1 + j].Nilai[x];
+        }
     }
     /* Menggabungkan kembali array sementara ke array nilai[l..r]*/
     i = 0; //Indeks subarray pertama
@@ -28,46 +30,50 @@ void merge(int jenis, int l, int m, int r, int tipe)
     k = l; //Indeks subarray gabungan
 
     //Sort tipe int
-    if(jenis != 6){
+    if(jenis <= 5){
         while (i < n1 && j < n2) {
             if ((tipe == 1 && L[i].Nilai[jenis] <= R[j].Nilai[jenis]) || 
                 (tipe == 2 && L[i].Nilai[jenis] >= R[j].Nilai[jenis])){
                 strcpy(mhs[k].Nama, L[i].Nama);
                 mhs[k].NIM = L[i].NIM;
-                mhs[k].Nilai[0] = L[i].Nilai[0];
-                mhs[k].Nilai[1] = L[i].Nilai[1];
+                for(int x = 0; x < 6; x++){
+                    mhs[k].Nilai[x] = L[i].Nilai[x];
+                }
                 i++;
             }
             else {
                 strcpy(mhs[k].Nama, R[j].Nama);
                 mhs[k].NIM = R[j].NIM;
-                mhs[k].Nilai[0] = R[j].Nilai[0];
-                mhs[k].Nilai[1] = R[j].Nilai[1];
-                j++;
-            }
-            k++;
-        }
-        //Sort NIM
-    else if(jenis == 7){
-        while (i < n1 && j < n2) {
-            if ((tipe == 1 && L[i].NIM <= R[j].NIM) || 
-                (tipe == 2 && L[i].NIM >= R[j].NIM)){
-                strcpy(mhs[k].Nama, L[i].Nama);
-                mhs[k].NIM = L[i].NIM;
-                mhs[k].Nilai[0] = L[i].Nilai[0];
-                mhs[k].Nilai[1] = L[i].Nilai[1];
-                i++;
-            }
-            else {
-                strcpy(mhs[k].Nama, R[j].Nama);
-                mhs[k].NIM = R[j].NIM;
-                mhs[k].Nilai[0] = R[j].Nilai[0];
-                mhs[k].Nilai[1] = R[j].Nilai[1];
+                for(int x = 0; x < 6; x++){
+                    mhs[k].Nilai[x] = R[j].Nilai[x];
+                }
                 j++;
             }
             k++;
         }
     }
+    //Sort NIM
+    else if(jenis == 6){
+        while (i < n1 && j < n2) {
+            if ((tipe == 1 && L[i].NIM <= R[j].NIM) || 
+                (tipe == 2 && L[i].NIM >= R[j].NIM)){
+                strcpy(mhs[k].Nama, L[i].Nama);
+                mhs[k].NIM = L[i].NIM;
+                for(int x = 0; x < 6; x++){
+                    mhs[k].Nilai[x] = L[i].Nilai[x];
+                }
+                i++;
+            }
+            else {
+                strcpy(mhs[k].Nama, R[j].Nama);
+                mhs[k].NIM = R[j].NIM;
+                for(int x = 0; x < 6; x++){
+                    mhs[k].Nilai[x] = R[j].Nilai[x];
+                }
+                j++;
+            }
+            k++;
+        }
     }
     //Sort char (Nama)
     else{
@@ -91,8 +97,9 @@ void merge(int jenis, int l, int m, int r, int tipe)
                 (tipe == 2 && test1 > test2)) {
                 strcpy(mhs[k].Nama, L[i].Nama);
                 mhs[k].NIM = L[i].NIM;
-                mhs[k].Nilai[0] = L[i].Nilai[0];
-                mhs[k].Nilai[1] = L[i].Nilai[1];
+                for(int x = 0; x < 6; x++){
+                    mhs[k].Nilai[x] = L[i].Nilai[x];
+                }
                 i++;
                 a = 0;
             }
@@ -105,8 +112,9 @@ void merge(int jenis, int l, int m, int r, int tipe)
                 else{
                     strcpy(mhs[k].Nama, R[j].Nama);
                     mhs[k].NIM = R[j].NIM;
-                    mhs[k].Nilai[0] = R[j].Nilai[0];
-                    mhs[k].Nilai[1] = R[j].Nilai[1];
+                    for(int x = 0; x < 6; x++){
+                        mhs[k].Nilai[x] = R[j].Nilai[x];
+                    }
                     j++;
                     a = 0;
                 }
@@ -118,16 +126,18 @@ void merge(int jenis, int l, int m, int r, int tipe)
     while (i < n1) {
         strcpy(mhs[k].Nama, L[i].Nama);
         mhs[k].NIM = L[i].NIM;
-        mhs[k].Nilai[0] = L[i].Nilai[0];
-        mhs[k].Nilai[1] = L[i].Nilai[1];
+        for(int x = 0; x < 6; x++){
+            mhs[k].Nilai[x] = L[i].Nilai[x];
+        }
         i++;
         k++;
     }
     while (j < n2) {
         strcpy(mhs[k].Nama, R[j].Nama);
         mhs[k].NIM = R[j].NIM;
-        mhs[k].Nilai[0] = R[j].Nilai[0];
-        mhs[k].Nilai[1] = R[j].Nilai[1];
+        for(int x = 0; x < 6; x++){
+            mhs[k].Nilai[x] = R[j].Nilai[x];
+        }
         j++;
         k++;
     }
