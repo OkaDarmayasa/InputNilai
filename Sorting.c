@@ -47,6 +47,27 @@ void merge(int jenis, int l, int m, int r, int tipe)
             }
             k++;
         }
+        //Sort NIM
+    else if(jenis == 7){
+        while (i < n1 && j < n2) {
+            if ((tipe == 1 && L[i].NIM <= R[j].NIM) || 
+                (tipe == 2 && L[i].NIM >= R[j].NIM)){
+                strcpy(mhs[k].Nama, L[i].Nama);
+                mhs[k].NIM = L[i].NIM;
+                mhs[k].Nilai[0] = L[i].Nilai[0];
+                mhs[k].Nilai[1] = L[i].Nilai[1];
+                i++;
+            }
+            else {
+                strcpy(mhs[k].Nama, R[j].Nama);
+                mhs[k].NIM = R[j].NIM;
+                mhs[k].Nilai[0] = R[j].Nilai[0];
+                mhs[k].Nilai[1] = R[j].Nilai[1];
+                j++;
+            }
+            k++;
+        }
+    }
     }
     //Sort char (Nama)
     else{
