@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Input.c"
+#include "Edit.c"
 
 void loading()
 {
