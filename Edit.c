@@ -4,11 +4,12 @@
 #include "Display.c"
 
 void edit(){
-    char NIMEdit[11], ulang;
+    int NIMEdit;
+    char ulang;
     int pilihan;
     printf("\n  NIM: ");
     scanf("\n");
-    scanf("%[^\n]*c", NIMEdit);
+    scanf("%d", &NIMEdit);
 
     //mencari NIM yang ingin diedit di struct, apakah sudah ada atau belom
     int indeksEdit = search(NIMEdit);
@@ -16,7 +17,7 @@ void edit(){
         ulang:
         printf("\n  Menu Input Data Mahasiswa");
         //                 2008561070
-        printf("\n         %s", mhs[indeksEdit].NIM);
+        printf("\n         %d", mhs[indeksEdit].NIM);
         printf("\n  ---------------------");
         printf("\n  1. Edit Nilai Tugas");
         printf("\n  2. Edit Nilai Quiz");
@@ -55,5 +56,3 @@ void edit(){
         edit();
     }
 }
-
-
