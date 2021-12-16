@@ -8,10 +8,10 @@ void case1_9();
 void display();
 int search();
 
-int search(char NIM[]){
+int search(int NIM){
     //mending pake count aja biar gk kebanyakan
     for (int i = 0; i < count; i++){ 
-        if (strcmp(NIM, mhs[i].NIM) == 0){
+        if (NIM == mhs[i].NIM){
             return i;
         }
     }
