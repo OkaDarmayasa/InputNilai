@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "Input.c"
 
 void merge(int jenis, int l, int m, int r, int tipe)
 {
