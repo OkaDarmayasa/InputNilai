@@ -10,7 +10,7 @@ int search();
 
 int search(int NIM){
     //mending pake count aja biar gk kebanyakan
-    for (int i = 0; i < count; i++){ 
+    for (int i = 0; i < count; i++){
         if (NIM == mhs[i].NIM){
             return i;
         }
@@ -18,8 +18,9 @@ int search(int NIM){
     return -1;
 }
 
-void print_data (int a) 
-{ printf("| %-10d| %-19s| %-6d| %-5d| %-10d| %-4d| %-4d| %-7d|\n", mhs[a].NIM, mhs[a].Nama, mhs[a].Nilai[0], mhs[a].Nilai[1],
+void data(int a)
+{
+    printf("| %-10d| %-19s| %-6d| %-5d| %-10d| %-4d| %-4d| %-7d|\n", mhs[a].NIM, mhs[a].Nama, mhs[a].Nilai[0], mhs[a].Nilai[1],
                    mhs[a].Nilai[2], mhs[a].Nilai[3], mhs[a].Nilai[4], mhs[a].Nilai[5]);
 }
 
@@ -39,20 +40,19 @@ void case1_9(int caseBerapa){
         mergeSort(caseBerapa - 1, 0, count-1, tipe);
         printf("|    NIM    |        NAMA        | TUGAS | QUIZ | KEAKTIFAN | UTS | UAS | RERATA |\n");
         for(int a = 0; a < count; a++){
-            print_data(a);
+            data(a);
         }
     }
     else{
-        int NIMDicari;
         char namaDicari[MAX];
+        int NIMDicari;
         printf("\n  NIM: ");
-        scanf("\n");
         scanf("%d", &NIMDicari);
         int in = search(NIMDicari); //in itu indeksDicari
         //indeks 0 tugas, 1 quiz, 2 keaktifan, 3 UTS, 4 UAS, 5 rata-rata.
         if (in != -1){
             printf("|    NIM    |        NAMA        | TUGAS | QUIZ | KEAKTIFAN | UTS | UAS | RERATA |\n");
-            print_data(in);
+            data(in);
         }else {
             printf("    NIM Tidak Ada\n");
             system("pause");
