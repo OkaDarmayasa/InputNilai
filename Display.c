@@ -3,85 +3,80 @@
 #include <string.h>
 #include "Sorting.c"
 
-void case1_6();
-void case8();
+//casenya jadiin 1 ae.
+void case1_9();
 void display();
+int search();
+
 int search(char NIM[]){
-    for (int i = 0; i < MAX; i++){
+    //mending pake count aja biar gk kebanyakan
+    for (int i = 0; i < count; i++){ 
         if (strcmp(NIM, mhs[i].NIM) == 0){
             return i;
         }
     }
     return -1;
 }
-void case1_6(int caseBerapa){
-    mergeSort(caseBerapa, 0, count-1);
-    for(int a = 0; a < count; a++){
-        printf("|    NIM    |        NAMA        | TUGAS | QUIZ | KEAKTIFAN | UTS | UAS | RERATA |\n");
-        printf("| %-10s| %-19s| %-6d| %-5d| %-10d| %-4d| %-4d| %-7d|\n", mhs[a].NIM, mhs[a].Nama, mhs[a].Nilai[0], mhs[a].Nilai[1],
-               mhs[a].Nilai[2], mhs[a].Nilai[3], mhs[a].Nilai[4], mhs[a].Nilai[5]);
-    }
-}
-void case8(){
-    char namaDicari[MAX], NIMDicari[11];
 
-    printf("\n  NIM: ");
-    scanf("\n");
-    scanf("%[^\n]*c", NIMDicari);
-    int in = search(NIMDicari); //in itu indeksDicari
-        //indeks 0 tugas, 1 quiz, 2 keaktifan, 3 UTS, 4 UAS, 5 rata-rata.
-    if (in != -1){
+void case1_9(int caseBerapa){
+    if(caseBerapa != 9){
+        int tipe;
+        printf("    Urut Secara :\n"
+               "1. Ascending\n"
+               "2. Descending\n"
+               "Pilihan : ");
+        scanf("%d", &tipe);
+        if(tipe != 1 && tipe != 2){
+            //Default jika input salah, tipe = ASC
+            //Teori database v:
+            tipe = 1;
+        }
+        mergeSort(caseBerapa - 1, 0, count-1, tipe);
         printf("|    NIM    |        NAMA        | TUGAS | QUIZ | KEAKTIFAN | UTS | UAS | RERATA |\n");
-        printf("| %-10s| %-19s| %-6d| %-5d| %-10d| %-4d| %-4d| %-7d|\n", mhs[in].NIM, mhs[in].Nama, mhs[in].Nilai[0], mhs[in].Nilai[1],
-               mhs[in].Nilai[2], mhs[in].Nilai[3], mhs[in].Nilai[4], mhs[in].Nilai[5]);
-    }else {
-        printf("    NIM Tidak Ada\n");
-        printf("    Masukkan NIM Kembali\n");
-        system("cls");
-        display();
+        for(int a = 0; a < count; a++){
+            printf("| %-10d| %-19s| %-6d| %-5d| %-10d| %-4d| %-4d| %-7d|\n", mhs[a].NIM, mhs[a].Nama, mhs[a].Nilai[0], mhs[a].Nilai[1],
+                   mhs[a].Nilai[2], mhs[a].Nilai[3], mhs[a].Nilai[4], mhs[a].Nilai[5]);
+        }
+    }
+    else{
+        char namaDicari[MAX], NIMDicari[11];
+        printf("\n  NIM: ");
+        scanf("\n");
+        scanf("%[^\n]*c", NIMDicari);
+        int in = search(NIMDicari); //in itu indeksDicari
+        //indeks 0 tugas, 1 quiz, 2 keaktifan, 3 UTS, 4 UAS, 5 rata-rata.
+        if (in != -1){
+            printf("|    NIM    |        NAMA        | TUGAS | QUIZ | KEAKTIFAN | UTS | UAS | RERATA |\n");
+            printf("| %-10d| %-19s| %-6d| %-5d| %-10d| %-4d| %-4d| %-7d|\n", mhs[in].NIM, mhs[in].Nama, mhs[in].Nilai[0], mhs[in].Nilai[1],
+                   mhs[in].Nilai[2], mhs[in].Nilai[3], mhs[in].Nilai[4], mhs[in].Nilai[5]);
+        }else {
+            printf("    NIM Tidak Ada\n");
+            system("pause");
+            //Kalo mau ngulang ke menu utama lagi mending
+        }
     }
 }
+
 void display(){
     int jenis;
-    printf("    Tipe Display Data yang Diinginkan\n");
+    printf("    Tipe Display Data Urut Bedasarkan: \n");
     printf("1. Tugas\n"
             "2. Quiz\n"
             "3. Keaktifan\n"
             "4. UTS\n"
             "5. UAS\n"
             "6. Rata-rata\n"
-            "7. Nama\n"
-            "8. Pencarian NIM\n"
+            "7. NIM\n"
+            "8. Nama\n"
+            "9. Pencarian NIM\n"
             "Pilihan : ");
     scanf("%d", &jenis);
-    switch(jenis){
-        case 1:
-            case1_6(0);
-            break;
-        case 2:
-            case1_6(1);
-            break;
-        case 3:
-            case1_6(2);
-            break;
-        case 4:
-            case1_6(3);
-            break;
-        case 5:
-            case1_6(4);
-            break;
-        case 6:
-            case1_6(5);
-            break;
-        case 7:
-            //case7
-            break;
-        case 8:
-            case8();
-            break;
-        default:
-            printf("    Pilihan Anda Salah\n");
-            display();
+    if(jenis < 1 && jenis > 9){
+        printf("Pilihan Salah !\n");
+        display();
+    }
+    else{
+        case1_9(jenis);
     }
 }
 
