@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
 #include "Edit.c"
 
@@ -10,9 +8,9 @@ void loading()
     printf("\t\t\t\t\t\t");
 
     // Print loading bar progress
-    for (int i = 0; i < 20; i++) {
-        printf("%c", 9); // kalau mau simbol lain tinggal ubah angkanya
-        sleep(100);
+    for (int i = 0; i < 4; i++) {
+        printf("%c", '9'); // kalau mau simbol lain tinggal ubah angkanya
+        sleep(1);
     }
 }
 
